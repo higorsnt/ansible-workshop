@@ -6,7 +6,7 @@ info:
     A notifications microservice responsible for notifying users, for example, via email.
 servers:
   kafkaServer:
-    host: '' #TODO
+    host: 'localhost:9092'
     description: Kafka Server
     protocol: kafka
 
