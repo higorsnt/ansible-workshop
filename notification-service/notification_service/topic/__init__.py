@@ -10,7 +10,7 @@ import notification_service.service.email_service as email_service
 
 
 class Topics:
-    ORDER_CONFIRMATION_EMAIL = '/order-confirmation-email'
+    ORDER_CONFIRMATION_EMAIL = 'order-confirmation-email'
 
 
 order_confirmation_schema = {
