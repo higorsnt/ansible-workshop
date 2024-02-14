@@ -1,17 +1,18 @@
 import asyncio
-import os
 import subprocess
 import sys
 
 import uvicorn
 from dotenv import load_dotenv
 from fastapi import FastAPI
+from starlette.staticfiles import StaticFiles
 
 from notification_service.topic import Topic
 
 load_dotenv()
 
 app = FastAPI()
+app.mount("/async-api-doc", StaticFiles(directory="docs", html=True), name="asyncapidoc")
 
 loop = asyncio.get_event_loop()
 
