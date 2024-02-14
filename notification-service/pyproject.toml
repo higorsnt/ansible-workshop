@@ -17,7 +17,7 @@ jsonschema = "^4.21.1"
 
 [tool.poetry.scripts]
 start = "notification_service.main:run"
-doc = "asyncapi generate fromTemplate ./notification_service/api_specification/specification.yaml @asyncapi/html-template -o ./docs"
+doc = "notification_service.main:asyncapi_doc_generator"
 
 [build-system]
 requires = ["poetry-core"]
