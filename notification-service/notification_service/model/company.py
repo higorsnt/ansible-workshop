@@ -1,8 +1,10 @@
+from dataclasses import dataclass
+
 from notification_service.model.address import Address
 
 
+@dataclass
 class Company:
-    def __init__(self, name: str, email: str, address: Address):
-        self.name = name
-        self.email = email
-        self.address = address
+    name: str
+    email: str
+    address: Address

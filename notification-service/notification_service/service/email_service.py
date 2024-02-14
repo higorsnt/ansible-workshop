@@ -22,12 +22,12 @@ def send_email(template, user: User):
     message["To"] = receiver_email
     message.attach(html)
 
-    with open('../template/resources/logo.png', 'rb') as logo:
+    with open('notification_service/template/resources/logo.png', 'rb') as logo:
         logo_img = MIMEImage(logo.read())
         logo_img.add_header('Content-ID', '<logo>')
         message.attach(logo_img)
 
-    with open('../template/resources/success.png', 'rb') as success:
+    with open('notification_service/template/resources/success.png', 'rb') as success:
         success_img = MIMEImage(success.read())
         success_img.add_header('Content-ID', '<success>')
         message.attach(success_img)
@@ -36,33 +36,34 @@ def send_email(template, user: User):
 
     with smtplib.SMTP_SSL(DotEnv.smtp_server(), DotEnv.smtp_port(), context=context) as server:
         server.login(DotEnv.smtp_login(), DotEnv.smtp_password())
-        server.sendmail(sender_email, receiver_email, message.as_string())
+        server.sendmail(sender_email, [receiver_email], message.as_string())
 
 
 def render_template(template_path: str, args: dict):
-    with template_path as f:
-        return chevron.render(template=f, data=args)
+    with open(template_path, 'r') as f:
+        return chevron.render(template=f.read(), data=args)
 
 
 def send_order_confirmation_email(order: Order):
-    total_price = sum((p.quantity * p.price) for p in order.products)
+    total_price = sum(p.price * p.quantity for p in order.products)
     billing_address = f'{order.company.address.street}, {order.company.address.number}, {order.company.address.city} - {order.company.address.state}'
     shipping_address = f'{order.user.address.street}, {order.user.address.number}, {order.user.address.city} - {order.user.address.state}'
 
     args = {
         'order': {
             'id': order.id,
-            'items': [{'name': p.name, 'price': p.price, 'quantity': p.quantity} for p in order.products],
-            'total_price': total_price,
+            'items': [{'name': p.name, 'price': "R$ {:.2f}".format(p.price), 'quantity': p.quantity} for p in order.products],
+            'total_price': "R$ {:.2f}".format(total_price),
             'unsubscribe': 'http://example.com/unsubscribe'
         },
         'company': {
             'name': order.company.name,
-            'billing_address': billing_address
+            'billing_address': billing_address,
+            'billing_email_address': order.company.email
         },
         'user': {
             'shipping_address': shipping_address
         },
     }
-    email_body = render_template('../template/order_confirmation.mustache', args)
+    email_body = render_template('notification_service/template/order_confirmation.html', args)
     send_email(email_body, order.user)

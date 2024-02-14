@@ -329,7 +329,7 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
 
 
   
-  {{ #order.items }}
+  {{#order.items}}
 <div class="u-row-container ordered_products" style="padding: 0px;background-color: transparent">
   <div class="u-row" style="margin: 0 auto;min-width: 320px;max-width: 640px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #ffffff;">
     <div style="border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;">
@@ -392,7 +392,7 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
       <td style="overflow-wrap:break-word;word-break:break-word;padding:5px 20px 5px 10px;font-family:arial,helvetica,sans-serif;" align="left">
         
   <div style="font-size: 14px; line-height: 140%; text-align: right; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 16px; line-height: 22.4px;">${{price}}</span></p>
+    <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 16px; line-height: 22.4px;">{{price}}</span></p>
   </div>
 
       </td>
@@ -408,7 +408,7 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
     </div>
   </div>
   </div>
-  {{ /order.items }}
+  {{/order.items}}
 
 
   
@@ -495,7 +495,7 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
       <td style="overflow-wrap:break-word;word-break:break-word;padding:10px 21px 10px 10px;font-family:arial,helvetica,sans-serif;" align="left">
         
   <div style="font-size: 14px; line-height: 140%; text-align: left; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 140%; text-align: right;"><span style="font-size: 16px; line-height: 22.4px;"><strong>${{order.total_price}}</strong></span></p>
+    <p style="font-size: 14px; line-height: 140%; text-align: right;"><span style="font-size: 16px; line-height: 22.4px;"><strong>{{order.total_price}}</strong></span></p>
   </div>
 
       </td>
@@ -583,7 +583,7 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
       <td style="overflow-wrap:break-word;word-break:break-word;padding:6px 10px 10px;font-family:arial,helvetica,sans-serif;" align="left">
         
   <!--[if mso]><table width="100%"><tr><td><![endif]-->
-    <h3 style="margin: 0px; color: #000000; line-height: 140%; text-align: left; word-wrap: break-word; font-family: arial,helvetica,sans-serif; font-size: 15px; font-weight: 400;">{{order.billing_address}}&nbsp;</h3>
+    <h3 style="margin: 0px; color: #000000; line-height: 140%; text-align: left; word-wrap: break-word; font-family: arial,helvetica,sans-serif; font-size: 15px; font-weight: 400;">{{company.billing_address}}&nbsp;</h3>
   <!--[if mso]></td></tr></table><![endif]-->
 
       </td>
@@ -658,7 +658,7 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
         
   <div style="font-size: 14px; line-height: 140%; text-align: left; word-wrap: break-word;">
     <p style="font-size: 14px; line-height: 140%; text-align: center;"><span style="font-size: 14px; line-height: 19.6px;">Our mailing address is:</span></p>
-<p style="font-size: 14px; line-height: 140%; text-align: center;"><span style="font-size: 14px; line-height: 19.6px;">{{company.billing_address}}</span></p>
+<p style="font-size: 14px; line-height: 140%; text-align: center;"><span style="font-size: 14px; line-height: 19.6px;">{{company.billing_email_address}}</span></p>
   </div>
 
       </td>

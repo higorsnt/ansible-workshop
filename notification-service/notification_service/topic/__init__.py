@@ -1,12 +1,12 @@
-import json
 from asyncio import AbstractEventLoop
 
-from jsonschema import validate
-
+import jsons
 from aiokafka import AIOKafkaConsumer
+from jsonschema.validators import validate
 
 from notification_service.dot_env import DotEnv
-import notification_service.service.email_service as email_service
+from notification_service.model.order import Order
+from notification_service.service import email_service
 
 
 class Topics:
@@ -20,9 +20,9 @@ order_confirmation_schema = {
         "user": {
             "type": "object",
             "properties": {
-                "email": {"type": "email"},
+                "email": {"type": "string", "format": "email"},
                 "name": {"type": "string"},
-                "address": "#/$defs/address"
+                "address": {"$ref": "#/$defs/address"}
             }
         },
         "products": {
@@ -40,8 +40,8 @@ order_confirmation_schema = {
             "type": "object",
             "properties": {
                 "name": {"type": "string"},
-                "email": {"type": "email"},
-                "address": "#/$defs/address"
+                "email": {"type": "string", "format": "email"},
+                "address": {"$ref": "#/$defs/address"}
             }
         }
     },
@@ -52,7 +52,7 @@ order_confirmation_schema = {
                 "street": {"type": "string"},
                 "city": {"type": "string"},
                 "state": {"type": "string"},
-                "number": {"type": "string"},
+                "number": {"type": "integer"},
             }
         }
     }
@@ -60,7 +60,9 @@ order_confirmation_schema = {
 
 
 def value_deserializer(v):
-    return json.loads(v).encode('utf-8')
+    data = jsons.loadb(v)
+    validate(instance=data, schema=order_confirmation_schema)
+    return jsons.load(data, Order)
 
 
 class Topic:
@@ -77,14 +79,8 @@ class Topic:
 
         try:
             async for msg in consumer:
-                print(
-                    "{}:{:d}:{:d}: key={} value={} timestamp_ms={}".format(
-                        msg.topic, msg.partition, msg.offset, msg.key, msg.value,
-                        msg.timestamp)
-                )
-                # email_service.send_order_confirmation_email(msg.value)
-                # validate(instance=msg, schema=order_confirmation_schema)
-        except json.JSONDecodeError:
-            print("Erro ao decodificar a mensagem JSON")
+                email_service.send_order_confirmation_email(msg.value)
+        except jsons.JsonsError:
+            print("Error decoding JSON message")
         finally:
             await consumer.stop()
