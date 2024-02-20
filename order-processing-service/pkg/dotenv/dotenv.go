@@ -1,7 +1,6 @@
 package dotenv
 
 import (
-    "order-processing-service/exception"
     "os"
     "strconv"
 )
@@ -11,11 +10,7 @@ func PostgresHost() string {
 }
 
 func PostgresPort() int {
-    port, err := strconv.Atoi(os.Getenv("POSTGRES_PORT"))
-    if err != nil {
-        exception.ErrorPanic(err)
-    }
-
+    port, _ := strconv.Atoi(os.Getenv("POSTGRES_PORT"))
     return port
 }
 
@@ -29,4 +24,8 @@ func PostgresPassword() string {
 
 func PostgresDatabase() string {
     return os.Getenv("POSTGRES_DATABASE")
+}
+
+func ServerPort() string {
+    return os.Getenv("SERVER_PORT")
 }

@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+package order;
+
+option go_package = "./pkg/protobuf/order";
+
+service OrderService {
+    rpc Save(OrderSaveRequest) returns (OrderSaveResponse) {}
+    rpc ListByUserId(ListUserOrdersRequest) returns (ListUserOrdersResponse) {}
+}
+
+// Save
+message OrderSaveRequest {
+    message Product {
+        int64 id = 1;
+        int64 quantity = 2;
+    }
+
+    int64 user_id = 3;
+    int64 company_id = 4;
+    repeated Product products = 5;
+}
+
+message OrderSaveResponse {
+    message Data {
+        message Product {
+            string name = 1;
+            double price = 2;
+            int64 quantity = 3;
+        }
+
+        string id = 1;
+        int64 user_id = 2;
+        int64 company_id = 3;
+        repeated Product products = 4;
+    }
+
+    int32 status = 1;
+    Data data = 2;
+}
+
+// List User Orders
+message ListUserOrdersRequest {
+    int32 user_id = 1;
+}
+
+message ListUserOrdersResponse {
+    message Product {
+        int32 id = 1;
+        string name = 2;
+        string description = 3;
+        double price = 4;
+        int64 quantity = 5;
+    }
+
+    message Order {
+        string id = 1;
+        string date = 2;
+        repeated Product products = 3;
+    }
+
+    repeated Order orders = 1;
+}
