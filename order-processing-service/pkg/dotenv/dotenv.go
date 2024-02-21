@@ -29,3 +29,7 @@ func PostgresDatabase() string {
 func ServerPort() string {
     return os.Getenv("SERVER_PORT")
 }
+
+func KafkaServer() string {
+    return os.Getenv("KAFKA_SERVER")
+}
