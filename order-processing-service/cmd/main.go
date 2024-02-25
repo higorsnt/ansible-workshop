@@ -12,6 +12,7 @@ import (
     pbo "order-processing-service/pkg/protobuf/order"
     pbp "order-processing-service/pkg/protobuf/product"
     r "order-processing-service/pkg/repository"
+    "order-processing-service/pkg/seed"
     "order-processing-service/pkg/service"
 )
 
@@ -22,6 +23,8 @@ func main() {
     }
 
     db := config.DatabaseConnection()
+
+    seed.Load(db)
 
     lis, err := net.Listen("tcp", dotenv.ServerPort())
     if err != nil {
