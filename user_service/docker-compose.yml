@@ -1,0 +1,25 @@
+version: '3.1'
+
+services:
+  mysql:
+    image: mysql:8.3.0
+    ports:
+      - '3306:3306'
+    volumes:
+      - mysql_data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=3sh0p
+      - MYSQL_DATABASE=eshop
+#  oracle:
+#    image: container-registry.oracle.com/database/express:21.3.0-xe
+#    ports:
+#      - '1521:1521'
+#    volumes:
+#      - "oracle_data:/ora/data"
+#    environment:
+#      - ORACLE_CHARACTERSET=AL32UTF8
+#      - ORACLE_PWD=0r4CLe
+
+volumes:
+  mysql_data:
+    driver: local
