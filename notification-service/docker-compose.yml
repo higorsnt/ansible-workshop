@@ -25,6 +25,27 @@ services:
       KAFKA_CLUSTERS_0_NAME: local
       KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:29092
       DYNAMIC_CONFIG_ENABLED: 'true'
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - SMTP_PORT=
+      - SMTP_SERVER=
+      - SMTP_LOGIN=
+      - SMTP_PASSWORD=
+      - KAFKA_SERVER=
+    ports:
+      - "8000:8000"
+    volumes:
+      - ".:/app"
+      - "/app/.venv"
+    command:
+      [
+        "poetry",
+        "run",
+        "start"
+      ]
 
 volumes:
   kafka_data:

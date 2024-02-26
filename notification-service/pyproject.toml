@@ -7,9 +7,9 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-fastapi = "^0.109.2"
+fastapi = "^0.110.0"
 uvicorn = "^0.27.1"
-pydantic = "^2.6.1"
+pydantic = "^2.6.2"
 python-dotenv = "^1.0.1"
 aiokafka = "^0.10.0"
 chevron = "^0.14.0"
