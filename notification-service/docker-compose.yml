@@ -30,11 +30,11 @@ services:
       context: .
       dockerfile: Dockerfile
     environment:
-      - SMTP_PORT=
-      - SMTP_SERVER=
+      - SMTP_PORT=465
+      - SMTP_SERVER=smtp.gmail.com
       - SMTP_LOGIN=
       - SMTP_PASSWORD=
-      - KAFKA_SERVER=
+      - KAFKA_SERVER=kafka:29092
     ports:
       - "8000:8000"
     volumes:
