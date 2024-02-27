@@ -28,7 +28,7 @@ def home():
 
 
 def run():
-    uvicorn.run("notification_service.main:app", reload=True)
+    uvicorn.run("notification_service.main:app", reload=True, host="0.0.0.0")
 
 
 def install_asyncapi():

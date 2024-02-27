@@ -11,9 +11,7 @@ ENV PATH="${PATH}:/root/.local/bin"
 
 RUN python3 -m pipx install poetry
 
-COPY /pyproject.toml /notification_service
-RUN poetry install
-
 COPY . .
+RUN poetry install
 
 EXPOSE 8000
