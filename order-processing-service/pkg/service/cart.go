@@ -8,6 +8,8 @@ import (
 )
 
 type CartService struct {
+    pbc.UnimplementedCartServiceServer
+
     CartRepository    repository.CartRepository
     ProductRepository repository.ProductRepository
 }

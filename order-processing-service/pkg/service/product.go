@@ -9,6 +9,8 @@ import (
 )
 
 type ProductService struct {
+    productpb.UnimplementedProductServiceServer
+
     ProductRepository repository.ProductRepository
 }
 

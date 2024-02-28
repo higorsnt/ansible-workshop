@@ -11,6 +11,8 @@ import (
 )
 
 type OrderService struct {
+    opb.UnimplementedOrderServiceServer
+
     OrderRepository   repository.OrderRepository
     ProductRepository repository.ProductRepository
 }
