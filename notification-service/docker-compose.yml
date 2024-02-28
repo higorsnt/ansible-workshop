@@ -20,6 +20,8 @@ services:
 
   kafka-ui:
     image: provectuslabs/kafka-ui:latest
+    depends_on:
+      - kafka
     ports:
       - '8085:8080'
     environment:
@@ -31,6 +33,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    depends_on:
+      - kafka
     environment:
       - SMTP_PORT=465
       - SMTP_SERVER=smtp.gmail.com
