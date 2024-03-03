@@ -19,6 +19,18 @@ services:
 #    environment:
 #      - ORACLE_CHARACTERSET=AL32UTF8
 #      - ORACLE_PWD=0r4CLe
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - mysql
+    environment:
+      - DATABASE_URL=jdbc:mysql://mysql:3306/eshop?serverTimezone=UTC
+      - DATABASE_USERNAME=root
+      - DATABASE_PASSWORD=3sh0p
+    ports:
+      - "8080:8080"
 
 volumes:
   mysql_data:
