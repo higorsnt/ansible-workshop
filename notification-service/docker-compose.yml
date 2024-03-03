@@ -46,12 +46,6 @@ services:
     volumes:
       - ".:/app"
       - "/app/.venv"
-    command:
-      [
-        "poetry",
-        "run",
-        "start"
-      ]
 
 volumes:
   kafka_data:
