@@ -29,5 +29,10 @@ var products = []model.Product{
 }
 
 func Load(db *gorm.DB) {
-    db.Create(&products)
+    var count int64
+    db.Model(&model.Product{}).Count(&count)
+
+    if count > 0 {
+        db.Create(&products)
+    }
 }
