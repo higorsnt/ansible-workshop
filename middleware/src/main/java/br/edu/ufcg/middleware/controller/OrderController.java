@@ -24,12 +24,20 @@ public class OrderController {
     @GrpcClient("order-service")
     private OrderServiceBlockingStub orderServiceStub;
 
+    private final UserController userController;
+    private final CompanyController companyController;
+
+    public OrderController(UserController userController, CompanyController companyController) {
+        this.userController = userController;
+        this.companyController = companyController;
+    }
+
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public OrderSaveResponseDto create(@RequestBody OrderSaveDto orderSaveDto) {
         OrderSaveRequest.Builder request = OrderSaveRequest.newBuilder()
-                .setUser(makeUserRequest(orderSaveDto.user()))
-                .setCompany(makeCompanyRequest(orderSaveDto.company()));
+                .setUser(makeUserRequest(orderSaveDto.userId()))
+                .setCompany(makeCompanyRequest(orderSaveDto.companyId()));
 
         for (int i = 0; i < orderSaveDto.products().size(); i++) {
             ProductOrderSaveDto product = orderSaveDto.products().get(i);
@@ -43,7 +51,9 @@ public class OrderController {
         return new OrderSaveResponseDto(data);
     }
 
-    private OrderSaveRequest.Company makeCompanyRequest(CompanyDto company) {
+    private OrderSaveRequest.Company makeCompanyRequest(Long companyId) {
+        CompanyDto company = companyController.findById(companyId);
+
         OrderSaveRequest.Address address = OrderSaveRequest.Address.newBuilder()
                 .setCity(company.address().city())
                 .setNumber(company.address().number())
@@ -58,7 +68,9 @@ public class OrderController {
                 .build();
     }
 
-    private OrderSaveRequest.User makeUserRequest(UserDto user) {
+    private OrderSaveRequest.User makeUserRequest(Long userId) {
+        UserDto user = userController.findById(userId);
+
         OrderSaveRequest.Address address = OrderSaveRequest.Address.newBuilder()
                 .setCity(user.address().city())
                 .setNumber(user.address().number())

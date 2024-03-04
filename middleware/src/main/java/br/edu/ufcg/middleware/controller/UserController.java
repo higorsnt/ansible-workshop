@@ -18,7 +18,7 @@ import java.util.Objects;
 public class UserController {
 
     @Value("${USER_SERVICE_HOST}")
-    private String SERVICE_HOST;
+    private String host;
 
     private static final String RESOURCE = "/user";
 
@@ -26,7 +26,7 @@ public class UserController {
 
     public UserController() {
         this.restTemplate = new RestTemplate();
-        this.restTemplate.setUriTemplateHandler(new DefaultUriBuilderFactory(SERVICE_HOST));
+        this.restTemplate.setUriTemplateHandler(new DefaultUriBuilderFactory(host));
     }
 
     @PostMapping

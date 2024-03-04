@@ -17,16 +17,14 @@ import java.util.Objects;
 @RequestMapping("/company")
 public class CompanyController {
 
-    @Value("${USER_SERVICE_HOST}")
-    private String SERVICE_HOST;
-
     private static final String RESOURCE = "/company";
 
     private final RestTemplate restTemplate;
 
     public CompanyController() {
+        String host = System.getenv("USER_SERVICE_HOST");
         this.restTemplate = new RestTemplate();
-        this.restTemplate.setUriTemplateHandler(new DefaultUriBuilderFactory(SERVICE_HOST));
+        this.restTemplate.setUriTemplateHandler(new DefaultUriBuilderFactory(host));
     }
 
     @PostMapping

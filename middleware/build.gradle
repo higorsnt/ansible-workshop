@@ -8,7 +8,7 @@ plugins {
 group = 'br.edu.ufcg'
 version = '0.0.1-SNAPSHOT'
 var protobufVersion = '3.25.3'
-var grpcVersion = '1.61.1'
+var grpcVersion = '1.62.2'
 
 protobuf {
     protoc {
