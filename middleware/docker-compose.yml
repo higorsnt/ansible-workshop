@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     environment:
-      - 'USER_SERVICE_HOST=http://localhost:8080'
-      - 'ORDER_SERVICE_HOST=http://localhost:50000'
+      - USER_SERVICE_HOST=http://localhost:8080
+      - ORDER_SERVICE_HOST=localhost:50000
     ports:
       - "8081:8081"

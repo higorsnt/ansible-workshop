@@ -21,8 +21,7 @@ public class CompanyController {
 
     private final RestTemplate restTemplate;
 
-    public CompanyController() {
-        String host = System.getenv("USER_SERVICE_HOST");
+    public CompanyController(@Value("${user_service.host}") String host) {
         this.restTemplate = new RestTemplate();
         this.restTemplate.setUriTemplateHandler(new DefaultUriBuilderFactory(host));
     }
@@ -44,8 +43,8 @@ public class CompanyController {
     @ResponseStatus(HttpStatus.OK)
     public List<CompanyDto> findAll() {
         return Arrays.stream(
-                Objects.requireNonNull(
-                        this.restTemplate.getForObject(RESOURCE, CompanyDto[].class)))
+                        Objects.requireNonNull(
+                                this.restTemplate.getForObject(RESOURCE, CompanyDto[].class)))
                 .toList();
     }
 

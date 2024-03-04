@@ -17,14 +17,11 @@ import java.util.Objects;
 @RequestMapping("/user")
 public class UserController {
 
-    @Value("${USER_SERVICE_HOST}")
-    private String host;
-
     private static final String RESOURCE = "/user";
 
     private final RestTemplate restTemplate;
 
-    public UserController() {
+    public UserController(@Value("${user_service.host}") String host) {
         this.restTemplate = new RestTemplate();
         this.restTemplate.setUriTemplateHandler(new DefaultUriBuilderFactory(host));
     }

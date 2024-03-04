@@ -12,6 +12,7 @@ import br.edu.ufcg.middleware.proto.order.OrderSaveRequest;
 import br.edu.ufcg.middleware.proto.order.OrderSaveResponse;
 import br.edu.ufcg.middleware.proto.order.OrderServiceGrpc.OrderServiceBlockingStub;
 import net.devh.boot.grpc.client.inject.GrpcClient;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,6 +28,7 @@ public class OrderController {
     private final UserController userController;
     private final CompanyController companyController;
 
+    @Autowired
     public OrderController(UserController userController, CompanyController companyController) {
         this.userController = userController;
         this.companyController = companyController;
