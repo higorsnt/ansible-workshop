@@ -1,0 +1,26 @@
+---
+- name: Executando user_service via ansible # descrição do playbook
+  hosts: localhost # uma lista ou um elemento informando o alvo de execução do playbook, útil para deploys remoto
+  gather_facts: false # indica se deve coletar fatos sobre o host antes de executar as atividades. Pode ser coletado informações sobre o SO, IP, hardware...
+  vars: # definindo váriaveis que podem ser utilizadas em algum momento durante o playbook (só são acessíveis neste playbook)
+    ansible_python_interpreter: "/usr/bin/python3.11"
+    db_username: root
+    db_password: 3sh0p
+    db_url: jdbc:mysql://localhost:3306/eshop?serverTimezone=UTC
+
+  tasks: # lista de plays descrevendo as atividades do playbook
+    - name: Iniciar o banco de dados MySQL
+      community.docker.docker_compose_v2: # utilizando o plugin do docker para inicializar o mysql
+        project_src: "{{ playbook_dir }}"
+
+    - name: Build da aplicação gradle
+      command: # é módulo que faz parte do core do ansible, útil para realizar comandos.
+        cmd: "./gradlew build --no-daemon"
+
+    - name: Iniciando a aplicação user_service
+      command:
+        cmd: "screen -S user_service -d -m java -jar build/libs/user_service-0.0.1-SNAPSHOT.jar"
+      environment: # definindo variáveis de ambiente para a aplicação
+        - DATABASE_URL: "{{ db_url }}"
+        - DATABASE_USERNAME: "{{ db_username }}"
+        - DATABASE_PASSWORD: "{{ db_password }}"
