@@ -1,0 +1,87 @@
+---
+- name: Playbook para executar notification_service
+  hosts: localhost
+  gather_facts: false
+  vars:
+    ansible_python_interpreter: "/usr/bin/python3.11"
+    dir: "{{ playbook_dir }}/notification-service"
+
+  tasks:
+    - name: Iniciar o kafka
+      ansible.builtin.command:
+        chdir: "{{ dir }}"
+        cmd: "docker compose up -d"
+      changed_when: false
+      register: output
+
+    - name: Debug da inicialização do kafka
+      ansible.builtin.debug:
+        var: output
+
+    - name: Instalando o poetry
+      community.general.pipx:
+        name: poetry
+
+    - name: Instalar as dependências da aplicação
+      ansible.builtin.command:
+        chdir: "{{ dir }}"
+        cmd: "poetry install"
+      changed_when: false
+
+    - name: Iniciar a aplicação
+      ansible.builtin.command:
+        chdir: "{{ dir }}"
+        cmd: "screen -S notification_service -d -m poetry run start"
+      changed_when: false
+      environment:
+        SMTP_PORT: '465'
+        SMTP_SERVER: 'smtp.gmail.com'
+        SMTP_LOGIN: ''
+        SMTP_PASSWORD: ''
+        KAFKA_SERVER: 'localhost:9092'
+
+- name: Playbook para iniciar aplicação order-processing-service
+  hosts: localhost
+  gather_facts: true # Coletar informações do host para ter acesso a informações importantes nas tasks
+  vars:
+    ansible_python_interpreter: "/usr/bin/python3.11"
+    dir: "{{ playbook_dir }}/order-processing-service"
+
+  tasks:
+    # - name: Mostrando os fatos obtidos do hosts
+    #   ansible.builtin.debug:
+    #     var: ansible_facts
+
+    - name: Inicializar a aplicação usando docker compose
+      # community.docker.docker_compose_v2:
+      #   project_src: "{{ dir }}"
+      #   wait: true
+      ansible.builtin.command:
+        chdir: "{{ dir }}"
+        cmd: "docker compose up -d"
+      changed_when: false
+
+- name: Playbook para executar o user_service
+  ansible.builtin.import_playbook: "{{ playbook_dir }}/user_service/run.yml"
+
+- name: Playbook para executar o middleware
+  hosts: localhost
+  gather_facts: false
+  vars:
+    dir: "{{ playbook_dir }}/middleware"
+
+  tasks:
+    - name: Realizar o build da aplicação
+      ansible.builtin.command:
+        chdir: "{{ dir }}"
+        cmd: "./gradlew build --no-daemon"
+      changed_when: false
+
+    - name: Iniciar a aplicação
+      ansible.builtin.command:
+        chdir: "{{ dir }}"
+        cmd: "screen -S middleware -d -m java -jar build/libs/middleware-0.0.1-SNAPSHOT.jar --server.port=8083"
+      changed_when: false
+      environment:
+        USER_SERVICE_HOST: "http://localhost:8080"
+        ORDER_SERVICE_HOST: "localhost:50000"

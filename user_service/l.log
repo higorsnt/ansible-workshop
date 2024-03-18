@@ -1,0 +1,115 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+[32m :: Spring Boot :: [39m              [2m (v3.2.3)[0;39m
+
+[2m2024-03-17T22:43:44.299-03:00[0;39m [32m INFO[0;39m [35m139660[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mb.e.u.u.UserServiceApplication          [0;39m [2m:[0;39m Starting UserServiceApplication v0.0.1-SNAPSHOT using Java 21.0.2 with PID 139660 (/home/higor/Documentos/Projetos/ansible-workshop/user_service/build/libs/user_service-0.0.1-SNAPSHOT.jar started by higor in /home/higor/Documentos/Projetos/ansible-workshop/user_service)
+[2m2024-03-17T22:43:44.301-03:00[0;39m [32m INFO[0;39m [35m139660[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mb.e.u.u.UserServiceApplication          [0;39m [2m:[0;39m No active profile set, falling back to 1 default profile: "default"
+[2m2024-03-17T22:43:45.322-03:00[0;39m [32m INFO[0;39m [35m139660[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36m.s.d.r.c.RepositoryConfigurationDelegate[0;39m [2m:[0;39m Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2m2024-03-17T22:43:45.373-03:00[0;39m [32m INFO[0;39m [35m139660[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36m.s.d.r.c.RepositoryConfigurationDelegate[0;39m [2m:[0;39m Finished Spring Data repository scanning in 40 ms. Found 2 JPA repository interfaces.
+[2m2024-03-17T22:43:46.616-03:00[0;39m [32m INFO[0;39m [35m139660[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.s.b.w.embedded.tomcat.TomcatWebServer [0;39m [2m:[0;39m Tomcat initialized with port 8080 (http)
+[2m2024-03-17T22:43:46.645-03:00[0;39m [32m INFO[0;39m [35m139660[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.apache.catalina.core.StandardService  [0;39m [2m:[0;39m Starting service [Tomcat]
+[2m2024-03-17T22:43:46.645-03:00[0;39m [32m INFO[0;39m [35m139660[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.apache.catalina.core.StandardEngine   [0;39m [2m:[0;39m Starting Servlet engine: [Apache Tomcat/10.1.19]
+[2m2024-03-17T22:43:46.762-03:00[0;39m [32m INFO[0;39m [35m139660[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.a.c.c.C.[Tomcat].[localhost].[/]      [0;39m [2m:[0;39m Initializing Spring embedded WebApplicationContext
+[2m2024-03-17T22:43:46.764-03:00[0;39m [32m INFO[0;39m [35m139660[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mw.s.c.ServletWebServerApplicationContext[0;39m [2m:[0;39m Root WebApplicationContext: initialization completed in 2343 ms
+[2m2024-03-17T22:43:47.227-03:00[0;39m [32m INFO[0;39m [35m139660[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.hibernate.jpa.internal.util.LogHelper [0;39m [2m:[0;39m HHH000204: Processing PersistenceUnitInfo [name: default]
+[2m2024-03-17T22:43:47.312-03:00[0;39m [32m INFO[0;39m [35m139660[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36morg.hibernate.Version                   [0;39m [2m:[0;39m HHH000412: Hibernate ORM core version 6.4.4.Final
+[2m2024-03-17T22:43:47.416-03:00[0;39m [32m INFO[0;39m [35m139660[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.c.internal.RegionFactoryInitiator   [0;39m [2m:[0;39m HHH000026: Second-level cache disabled
+[2m2024-03-17T22:43:47.966-03:00[0;39m [32m INFO[0;39m [35m139660[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.s.o.j.p.SpringPersistenceUnitInfo     [0;39m [2m:[0;39m No LoadTimeWeaver setup: ignoring JPA class transformer
+[2m2024-03-17T22:43:48.000-03:00[0;39m [32m INFO[0;39m [35m139660[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mcom.zaxxer.hikari.HikariDataSource      [0;39m [2m:[0;39m HikariPool-1 - Starting...
+[2m2024-03-17T22:43:48.509-03:00[0;39m [32m INFO[0;39m [35m139660[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mcom.zaxxer.hikari.pool.HikariPool       [0;39m [2m:[0;39m HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@68d6f48e
+[2m2024-03-17T22:43:48.511-03:00[0;39m [32m INFO[0;39m [35m139660[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mcom.zaxxer.hikari.HikariDataSource      [0;39m [2m:[0;39m HikariPool-1 - Start completed.
+[2m2024-03-17T22:43:49.764-03:00[0;39m [32m INFO[0;39m [35m139660[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.e.t.j.p.i.JtaPlatformInitiator      [0;39m [2m:[0;39m HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2m2024-03-17T22:43:49.884-03:00[0;39m [32m INFO[0;39m [35m139660[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mj.LocalContainerEntityManagerFactoryBean[0;39m [2m:[0;39m Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2m2024-03-17T22:43:50.457-03:00[0;39m [33m WARN[0;39m [35m139660[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mJpaBaseConfiguration$JpaWebConfiguration[0;39m [2m:[0;39m spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2m2024-03-17T22:43:50.946-03:00[0;39m [33m WARN[0;39m [35m139660[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mConfigServletWebServerApplicationContext[0;39m [2m:[0;39m Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+[2m2024-03-17T22:43:50.950-03:00[0;39m [32m INFO[0;39m [35m139660[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mj.LocalContainerEntityManagerFactoryBean[0;39m [2m:[0;39m Closing JPA EntityManagerFactory for persistence unit 'default'
+[2m2024-03-17T22:43:50.953-03:00[0;39m [32m INFO[0;39m [35m139660[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mcom.zaxxer.hikari.HikariDataSource      [0;39m [2m:[0;39m HikariPool-1 - Shutdown initiated...
+[2m2024-03-17T22:43:51.030-03:00[0;39m [32m INFO[0;39m [35m139660[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mcom.zaxxer.hikari.HikariDataSource      [0;39m [2m:[0;39m HikariPool-1 - Shutdown completed.
+[2m2024-03-17T22:43:51.084-03:00[0;39m [32m INFO[0;39m [35m139660[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36m.s.b.a.l.ConditionEvaluationReportLogger[0;39m [2m:[0;39m 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+[2m2024-03-17T22:43:51.127-03:00[0;39m [31mERROR[0;39m [35m139660[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.s.boot.SpringApplication              [0;39m [2m:[0;39m Application run failed
+
+org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+        at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:291) ~[spring-context-6.1.4.jar!/:6.1.4]
+        at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:471) ~[spring-context-6.1.4.jar!/:6.1.4]
+        at java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[na:na]
+        at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:260) ~[spring-context-6.1.4.jar!/:6.1.4]
+        at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:205) ~[spring-context-6.1.4.jar!/:6.1.4]
+        at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:978) ~[spring-context-6.1.4.jar!/:6.1.4]
+        at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.1.4.jar!/:6.1.4]
+        at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.2.3.jar!/:3.2.3]
+        at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.2.3.jar!/:3.2.3]
+        at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.2.3.jar!/:3.2.3]
+        at org.springframework.boot.SpringApplication.run(SpringApplication.java:334) ~[spring-boot-3.2.3.jar!/:3.2.3]
+        at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-3.2.3.jar!/:3.2.3]
+        at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343) ~[spring-boot-3.2.3.jar!/:3.2.3]
+        at br.edu.ufcg.user_service.UserServiceApplication.main(UserServiceApplication.java:12) ~[!/:0.0.1-SNAPSHOT]
+        at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+        at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+        at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:91) ~[user_service-0.0.1-SNAPSHOT.jar:0.0.1-SNAPSHOT]
+        at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:53) ~[user_service-0.0.1-SNAPSHOT.jar:0.0.1-SNAPSHOT]
+        at org.springframework.boot.loader.launch.JarLauncher.main(JarLauncher.java:58) ~[user_service-0.0.1-SNAPSHOT.jar:0.0.1-SNAPSHOT]
+Caused by: org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat server
+        at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:249) ~[spring-boot-3.2.3.jar!/:3.2.3]
+        at org.springframework.boot.web.servlet.context.WebServerStartStopLifecycle.start(WebServerStartStopLifecycle.java:44) ~[spring-boot-3.2.3.jar!/:3.2.3]
+        at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:288) ~[spring-context-6.1.4.jar!/:6.1.4]
+        ... 18 common frames omitted
+Caused by: java.lang.IllegalArgumentException: standardService.connector.startFailed
+        at org.apache.catalina.core.StandardService.addConnector(StandardService.java:235) ~[tomcat-embed-core-10.1.19.jar!/:na]
+        at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.addPreviouslyRemovedConnectors(TomcatWebServer.java:306) ~[spring-boot-3.2.3.jar!/:3.2.3]
+        at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:234) ~[spring-boot-3.2.3.jar!/:3.2.3]
+        ... 20 common frames omitted
+Caused by: org.apache.catalina.LifecycleException: Protocol handler start failed
+        at org.apache.catalina.connector.Connector.startInternal(Connector.java:1046) ~[tomcat-embed-core-10.1.19.jar!/:na]
+        at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171) ~[tomcat-embed-core-10.1.19.jar!/:na]
+        at org.apache.catalina.core.StandardService.addConnector(StandardService.java:232) ~[tomcat-embed-core-10.1.19.jar!/:na]
+        ... 22 common frames omitted
+Caused by: java.net.BindException: Endereço já em uso
+        at java.base/sun.nio.ch.Net.bind0(Native Method) ~[na:na]
+        at java.base/sun.nio.ch.Net.bind(Net.java:565) ~[na:na]
+        at java.base/sun.nio.ch.ServerSocketChannelImpl.netBind(ServerSocketChannelImpl.java:344) ~[na:na]
+        at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:301) ~[na:na]
+        at org.apache.tomcat.util.net.NioEndpoint.initServerSocket(NioEndpoint.java:247) ~[tomcat-embed-core-10.1.19.jar!/:na]
+        at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:202) ~[tomcat-embed-core-10.1.19.jar!/:na]
+        at org.apache.tomcat.util.net.AbstractEndpoint.bindWithCleanup(AbstractEndpoint.java:1282) ~[tomcat-embed-core-10.1.19.jar!/:na]
+        at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:1368) ~[tomcat-embed-core-10.1.19.jar!/:na]
+        at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:635) ~[tomcat-embed-core-10.1.19.jar!/:na]
+        at org.apache.catalina.connector.Connector.startInternal(Connector.java:1043) ~[tomcat-embed-core-10.1.19.jar!/:na]
+        ... 24 common frames omitted
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+[32m :: Spring Boot :: [39m              [2m (v3.2.3)[0;39m
+
+[2m2024-03-17T22:49:26.745-03:00[0;39m [32m INFO[0;39m [35m143636[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mb.e.u.u.UserServiceApplication          [0;39m [2m:[0;39m Starting UserServiceApplication v0.0.1-SNAPSHOT using Java 21.0.2 with PID 143636 (/home/higor/Documentos/Projetos/ansible-workshop/user_service/build/libs/user_service-0.0.1-SNAPSHOT.jar started by higor in /home/higor/Documentos/Projetos/ansible-workshop/user_service)
+[2m2024-03-17T22:49:26.748-03:00[0;39m [32m INFO[0;39m [35m143636[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mb.e.u.u.UserServiceApplication          [0;39m [2m:[0;39m No active profile set, falling back to 1 default profile: "default"
+[2m2024-03-17T22:49:27.834-03:00[0;39m [32m INFO[0;39m [35m143636[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36m.s.d.r.c.RepositoryConfigurationDelegate[0;39m [2m:[0;39m Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2m2024-03-17T22:49:27.885-03:00[0;39m [32m INFO[0;39m [35m143636[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36m.s.d.r.c.RepositoryConfigurationDelegate[0;39m [2m:[0;39m Finished Spring Data repository scanning in 45 ms. Found 2 JPA repository interfaces.
+[2m2024-03-17T22:49:29.182-03:00[0;39m [32m INFO[0;39m [35m143636[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.s.b.w.embedded.tomcat.TomcatWebServer [0;39m [2m:[0;39m Tomcat initialized with port 8080 (http)
+[2m2024-03-17T22:49:29.212-03:00[0;39m [32m INFO[0;39m [35m143636[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.apache.catalina.core.StandardService  [0;39m [2m:[0;39m Starting service [Tomcat]
+[2m2024-03-17T22:49:29.213-03:00[0;39m [32m INFO[0;39m [35m143636[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.apache.catalina.core.StandardEngine   [0;39m [2m:[0;39m Starting Servlet engine: [Apache Tomcat/10.1.19]
+[2m2024-03-17T22:49:29.287-03:00[0;39m [32m INFO[0;39m [35m143636[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.a.c.c.C.[Tomcat].[localhost].[/]      [0;39m [2m:[0;39m Initializing Spring embedded WebApplicationContext
+[2m2024-03-17T22:49:29.289-03:00[0;39m [32m INFO[0;39m [35m143636[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mw.s.c.ServletWebServerApplicationContext[0;39m [2m:[0;39m Root WebApplicationContext: initialization completed in 2434 ms
+[2m2024-03-17T22:49:29.742-03:00[0;39m [32m INFO[0;39m [35m143636[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.hibernate.jpa.internal.util.LogHelper [0;39m [2m:[0;39m HHH000204: Processing PersistenceUnitInfo [name: default]
+[2m2024-03-17T22:49:29.844-03:00[0;39m [32m INFO[0;39m [35m143636[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36morg.hibernate.Version                   [0;39m [2m:[0;39m HHH000412: Hibernate ORM core version 6.4.4.Final
+[2m2024-03-17T22:49:29.929-03:00[0;39m [32m INFO[0;39m [35m143636[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.c.internal.RegionFactoryInitiator   [0;39m [2m:[0;39m HHH000026: Second-level cache disabled
+[2m2024-03-17T22:49:30.513-03:00[0;39m [32m INFO[0;39m [35m143636[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.s.o.j.p.SpringPersistenceUnitInfo     [0;39m [2m:[0;39m No LoadTimeWeaver setup: ignoring JPA class transformer
+[2m2024-03-17T22:49:30.564-03:00[0;39m [32m INFO[0;39m [35m143636[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mcom.zaxxer.hikari.HikariDataSource      [0;39m [2m:[0;39m HikariPool-1 - Starting...
+[2m2024-03-17T22:49:31.308-03:00[0;39m [32m INFO[0;39m [35m143636[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mcom.zaxxer.hikari.pool.HikariPool       [0;39m [2m:[0;39m HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6d421fe
+[2m2024-03-17T22:49:31.311-03:00[0;39m [32m INFO[0;39m [35m143636[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mcom.zaxxer.hikari.HikariDataSource      [0;39m [2m:[0;39m HikariPool-1 - Start completed.
+[2m2024-03-17T22:49:32.738-03:00[0;39m [32m INFO[0;39m [35m143636[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.e.t.j.p.i.JtaPlatformInitiator      [0;39m [2m:[0;39m HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2m2024-03-17T22:49:32.851-03:00[0;39m [32m INFO[0;39m [35m143636[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mj.LocalContainerEntityManagerFactoryBean[0;39m [2m:[0;39m Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2m2024-03-17T22:49:33.325-03:00[0;39m [33m WARN[0;39m [35m143636[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mJpaBaseConfiguration$JpaWebConfiguration[0;39m [2m:[0;39m spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2m2024-03-17T22:49:33.846-03:00[0;39m [32m INFO[0;39m [35m143636[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.s.b.w.embedded.tomcat.TomcatWebServer [0;39m [2m:[0;39m Tomcat started on port 8080 (http) with context path ''
+[2m2024-03-17T22:49:33.874-03:00[0;39m [32m INFO[0;39m [35m143636[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mb.e.u.u.UserServiceApplication          [0;39m [2m:[0;39m Started UserServiceApplication in 7.664 seconds (process running for 8.218)

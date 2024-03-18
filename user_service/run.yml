@@ -10,17 +10,20 @@
 
   tasks: # lista de plays descrevendo as atividades do playbook
     - name: Iniciar o banco de dados MySQL
-      community.docker.docker_compose_v2: # utilizando o plugin do docker para inicializar o mysql
-        project_src: "{{ playbook_dir }}"
+      ansible.builtin.command: # é módulo que faz parte do core do ansible, útil para realizar comandos.
+        cmd: "docker compose up -d"
+      changed_when: false
 
     - name: Build da aplicação gradle
-      command: # é módulo que faz parte do core do ansible, útil para realizar comandos.
+      ansible.builtin.command:
         cmd: "./gradlew build --no-daemon"
+      changed_when: false
 
     - name: Iniciando a aplicação user_service
-      command:
-        cmd: "screen -S user_service -d -m java -jar build/libs/user_service-0.0.1-SNAPSHOT.jar"
+      ansible.builtin.command:
+        cmd: "screen -S user_service -L -Logfile l.log -d -m java -jar build/libs/user_service-0.0.1-SNAPSHOT.jar"
+      changed_when: false
       environment: # definindo variáveis de ambiente para a aplicação
-        - DATABASE_URL: "{{ db_url }}"
-        - DATABASE_USERNAME: "{{ db_username }}"
-        - DATABASE_PASSWORD: "{{ db_password }}"
+        DATABASE_URL: "{{ db_url }}"
+        DATABASE_USERNAME: "{{ db_username }}"
+        DATABASE_PASSWORD: "{{ db_password }}"
