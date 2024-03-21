@@ -1,0 +1,18 @@
+---
+- name: Criar ambiente virtual Python
+  hosts: localhost
+  vars:
+    venv_path: "{{ playbook_dir }}/venv"
+  tasks:
+    - name: Criar diretório para o ambiente virtual
+      ansible.builtin.file:
+        path: "{{ venv_path }}"
+        state: directory
+    - name: Criar ambiente virtual
+      ansible.builtin.command: python3 -m venv {{ venv_path }}
+    - name: Instalar pacotes Python usando pip no ambiente virtual
+      ansible.builtin.pip:
+        requirements: "{{ playbook_dir }}/../requirements.txt"
+        virtualenv: "{{ venv_path }}"
+
+

@@ -1,0 +1,21 @@
+---
+- name: Executar script python
+  hosts: localhost
+  tasks:
+    - name: Executar script
+      ansible.builtin.script:
+        cmd: ../script.py
+      register: output
+      args:
+        executable: python3
+    # - ansible.builtin.command:
+    #     cmd: python3 ../script.py
+    #   register: output
+    # - ansible.builtin.shell:
+    #     cmd: python3 ../script.py
+    #   register: output
+    
+    - ansible.builtin.debug:
+        var: output
+
+        
