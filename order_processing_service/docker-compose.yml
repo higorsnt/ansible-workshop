@@ -1,0 +1,41 @@
+version: '3.1'
+
+services:
+  postgres:
+    image: postgres:16.2
+    ports:
+      - '5432:5432'
+    volumes:
+      - "postgres_data:/postgres/data"
+    environment:
+      - POSTGRES_PASSWORD=S3cret
+      - POSTGRES_USER=eshop
+      - POSTGRES_DB=eshop_order
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - postgres
+    environment:
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_USER=eshop
+      - POSTGRES_PASSWORD=S3cret
+      - POSTGRES_DATABASE=eshop_order
+      - SERVER_PORT=:50000
+      - KAFKA_SERVER=localhost:9092
+    volumes:
+      - ".:/app"
+    ports:
+      - "50000:50000"
+    command:
+      [
+        "make",
+        "server"
+      ]
+
+volumes:
+  postgres_data:
+    driver: local
