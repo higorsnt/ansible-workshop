@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "notification-service"
+version = "0.1.0"
+description = ""
+authors = ["Higor Santos <higor.dantas@ccc.ufcg.edu.br>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.110.0"
+uvicorn = "^0.27.1"
+pydantic = "^2.6.2"
+python-dotenv = "^1.0.1"
+aiokafka = "^0.10.0"
+chevron = "^0.14.0"
+jsonschema = "^4.21.1"
+jsons = "^1.6.3"
+
+[tool.poetry.scripts]
+start = "notification_service.main:run"
+doc = "notification_service.main:asyncapi_doc_generator"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

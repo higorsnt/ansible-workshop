@@ -1,0 +1,103 @@
+asyncapi: '3.0.0'
+info:
+  title: Notification Service API
+  version: '1.0.0'
+  description: |
+    A notifications microservice responsible for notifying users, for example, via email.
+servers:
+  kafkaServer:
+    host: 'localhost:9092'
+    description: Kafka Server
+    protocol: kafka
+
+operations:
+  onOrderConfirmation:
+    action: receive
+    channel:
+      $ref: '#/channels/orderConfirmation'
+
+channels:
+  orderConfirmation:
+    address: 'order-confirmation-email'
+    title: Order Confirmation Email
+    description: This channel is used to exchange order information with customers
+    messages:
+      order:
+        $ref: '#/components/messages/orderConfirmation'
+
+components:
+  schemas:
+    Order:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The id of the order.
+        user:
+          $ref: '#/components/schemas/User'
+        company:
+          $ref: '#/components/schemas/Company'
+        products:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product'
+
+    User:
+      type: object
+      properties:
+        email:
+          type: string
+          description: The email of the user.
+        name:
+          type: string
+          description: The name of the user.
+        address:
+          $ref: '#/components/schemas/Address'
+
+    Address:
+      type: object
+      properties:
+        street:
+          type: string
+          description: The street of the address.
+        city:
+          type: string
+          description: The city of the address.
+        state:
+          type: string
+          description: The state of the address.
+        number:
+          type: integer
+          description: The number of the address.
+
+    Product:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the product.
+        price:
+          type: number
+          description: The price of the product.
+        quantity:
+          type: integer
+          description: The quantity of the product.
+
+    Company:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the company.
+        email:
+          type: string
+          description: The email of the company.
+        address:
+          $ref: '#/components/schemas/Address'
+  messages:
+    orderConfirmation:
+      summary: Action to confirm an order.
+      description: |
+        From the informed payload, an email is created with order confirmation information.
+      payload:
+        $ref: '#/components/schemas/Order'
