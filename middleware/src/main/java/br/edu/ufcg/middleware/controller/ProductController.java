@@ -36,9 +36,9 @@ public class ProductController {
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<ProductDto> list(
-            @RequestParam(value = "name", required = false) String name,
-            @RequestParam(value = "priceMax", required = false) Double priceMin,
-            @RequestParam(value = "priceMax", required = false) Double priceMax
+            @RequestParam(value = "name", required = false, defaultValue = "") String name,
+            @RequestParam(value = "priceMax", required = false, defaultValue = "0") Double priceMin,
+            @RequestParam(value = "priceMax", required = false, defaultValue = "0") Double priceMax
     ) {
         ProductListRequest.Filters filters = ProductListRequest.Filters.newBuilder()
                 .setName(name)

@@ -3,7 +3,7 @@
   hosts: localhost # uma lista ou um elemento informando o alvo de execução do playbook, útil para deploys remoto
   gather_facts: false # indica se deve coletar fatos sobre o host antes de executar as atividades. Pode ser coletado informações sobre o SO, IP, hardware...
   vars: # definindo váriaveis que podem ser utilizadas em algum momento durante o playbook (só são acessíveis neste playbook)
-    ansible_python_interpreter: "/usr/bin/python3.11"
+    ansible_python_interpreter: "/usr/bin/python3.10"
     db_username: root
     db_password: 3sh0p
     db_url: jdbc:mysql://localhost:3306/eshop?serverTimezone=UTC

@@ -3,8 +3,8 @@
   hosts: localhost
   gather_facts: false
   vars:
-    ansible_python_interpreter: "/usr/bin/python3.11"
-    dir: "{{ playbook_dir }}/notification-service"
+    ansible_python_interpreter: "/usr/bin/python3.10"
+    dir: "{{ playbook_dir }}/notification_service"
 
   tasks:
     - name: Iniciar o kafka
@@ -27,6 +27,11 @@
         chdir: "{{ dir }}"
         cmd: "poetry install"
       changed_when: false
+    
+    - name: Esperar o Kafka estar disponível
+      ansible.builtin.wait_for:
+        port: 9092
+        timeout: 10
 
     - name: Iniciar a aplicação
       ansible.builtin.command:
@@ -42,20 +47,12 @@
 
 - name: Playbook para iniciar aplicação order-processing-service
   hosts: localhost
-  gather_facts: true # Coletar informações do host para ter acesso a informações importantes nas tasks
+  gather_facts: false
   vars:
-    ansible_python_interpreter: "/usr/bin/python3.11"
-    dir: "{{ playbook_dir }}/order-processing-service"
-
+    ansible_python_interpreter: "/usr/bin/python3.10"
+    dir: "{{ playbook_dir }}/order_processing_service"
   tasks:
-    # - name: Mostrando os fatos obtidos do hosts
-    #   ansible.builtin.debug:
-    #     var: ansible_facts
-
     - name: Inicializar a aplicação usando docker compose
-      # community.docker.docker_compose_v2:
-      #   project_src: "{{ dir }}"
-      #   wait: true
       ansible.builtin.command:
         chdir: "{{ dir }}"
         cmd: "docker compose up -d"

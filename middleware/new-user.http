@@ -1,0 +1,16 @@
+POST http://localhost:8081/user
+Content-Type: application/json
+
+{
+  "name": "",
+  "email": "",
+  "document": "47406432275",
+  "address": {
+    "city": "Olinda",
+    "number": 524,
+    "state": "PE",
+    "street": "Rua Angelina Guimarães da Silva"
+  }
+}
+
+###
