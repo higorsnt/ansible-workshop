@@ -1,9 +1,0 @@
----
-- name: Executando o notification_service
-  hosts: localhost
-  gather_facts: false
-
-  tasks:
-    - name: Inicializando o kafka e kafka-ui a partir do docker-compose.
-      community.docker.docker_compose:
-        build: true
