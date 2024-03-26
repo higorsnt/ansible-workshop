@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-    <img src="./ansible-logo.png" style="background-color: #ffffff" alt="Markdownify" width="500">
+    <img src=".github/ansible-logo.png" style="background-color: #ffffff" alt="Ansible" width="500">
   <br>
   Minicurso de Ansible
   <br>
