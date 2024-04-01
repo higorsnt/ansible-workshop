@@ -14,5 +14,3 @@
       ansible.builtin.pip:
         requirements: "{{ playbook_dir }}/../requirements.txt"
         virtualenv: "{{ venv_path }}"
-
-
