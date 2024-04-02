@@ -32,3 +32,48 @@ A ideia é abordar os principais conceitos com o objetivo de mostar a montagem d
   - `user_service`
   - `middleware`
 - Soluções base para as atividades propostas
+
+
+## Testar o funcionamento
+
+1. Listar todos os produtos:
+
+```shell
+curl -X GET --location "http://localhost:8081/product" \
+    -H "Accept: application/json"
+```
+
+2. Criar novo usuário, lembre de alterar o nome e email (coloque algum que possa acessar):
+
+```shell
+curl -X POST --location "http://localhost:8081/user" \
+    -H "Content-Type: application/json" \
+    -d '{
+          "name": "",
+          "email": "",
+          "document": "47406432275",
+          "address": {
+            "city": "Olinda",
+            "number": 524,
+            "state": "PE",
+            "street": "Rua Angelina Guimarães da Silva"
+          }
+        }'
+```
+
+3. Criar um pedido, atualizar o json com o id do usuário criado:
+
+```shell
+curl -X POST --location "http://localhost:8081/order" \
+    -H "Content-Type: application/json" \
+    -d '{
+          "userId": 0,
+          "companyId": 1,
+          "products": [
+            {
+              "id": 4,
+              "quantity": 1
+            }
+          ]
+        }'
+```
